@@ -9,7 +9,6 @@ import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -65,57 +64,60 @@ public class translateAction extends AnAction {
                 builder.append(' ');
         }
 
+        builder.append(" ".repeat(Math.max(0, message.length() - builder.length())));
         return builder.toString();
     }
 
     private static Map<Character, Character> build() {
         Map<Character, Character> map = new HashMap<>();
-        map.put('é', 'q');
-        map.put('ö', 'w');
-        map.put('ó', 'e');
-        map.put('ê', 'r');
-        map.put('å', 't');
-        map.put('í', 'y');
-        map.put('ã', 'u');
-        map.put('ø', 'i');
-        map.put('ù', 'o');
-        map.put('ç', 'p');
+        map.put('Ğ¹', 'q');
+        map.put('Ñ†', 'w');
+        map.put('Ñƒ', 'e');
+        map.put('Ğº', 'r');
+        map.put('Ğµ', 't');
+        map.put('Ğ½', 'y');
+        map.put('Ğ³', 'u');
+        map.put('Ñˆ', 'i');
+        map.put('Ñ‰', 'o');
+        map.put('Ğ·', 'p');
 
-        map.put('ô', 'a');
-        map.put('û', 's');
-        map.put('â', 'd');
-        map.put('à', 'f');
-        map.put('ï', 'g');
-        map.put('ğ', 'h');
-        map.put('î', 'j');
-        map.put('ë', 'k');
-        map.put('ä', 'l');
+        map.put('Ñ„', 'a');
+        map.put('Ñ‹', 's');
+        map.put('Ğ²', 'd');
+        map.put('Ğ°', 'f');
+        map.put('Ğ¿', 'g');
+        map.put('Ñ€', 'h');
+        map.put('Ğ¾', 'j');
+        map.put('Ğ»', 'k');
+        map.put('Ğ´', 'l');
 
-        map.put('ÿ', 'z');
-        map.put('÷', 'x');
-        map.put('ñ', 'c');
-        map.put('ì', 'v');
-        map.put('è', 'b');
-        map.put('ò', 'n');
-        map.put('ü', 'm');
+        map.put('Ñ', 'z');
+        map.put('Ñ‡', 'x');
+        map.put('Ñ', 'c');
+        map.put('Ğ¼', 'v');
+        map.put('Ğ¸', 'b');
+        map.put('Ñ‚', 'n');
+        map.put('ÑŒ', 'm');
 
         Set<Character> keys = Set.copyOf(map.keySet());
         for (Character ch : keys)
             map.put((char) (ch - 32), (char) (map.get(ch) - 32));
-        map.put('õ', '[');
+        map.put('Ñ…', '[');
         map.put('X', '{');
-        map.put('ú', ']');
-        map.put('Ú', '}');
-        map.put('æ', ';');
-        map.put('Æ', ':');
-        map.put('ı', '\'');
-        map.put('İ', '\"');
-        map.put('á', ',');
-        map.put('Á', '<');
-        map.put('ş', '.');
-        map.put('Ş', '>');
-        map.put('.', '/');
-        map.put(',', '?');
+        map.put('ÑŠ', ']');
+        map.put('Ğª', '}');
+        map.put('Ğ¶', ';');
+        map.put('Ğ–', ':');
+        map.put('Ñ', '\'');
+        map.put('Ğ­', '\"');
+        map.put('Ñ‘', '\\');
+        map.put('Ğ', '|');
+        map.put('Ğ±', ',');
+        map.put('Ğ‘', '<');
+        map.put('Ñ', '.');
+        map.put('Ğ®', '>');
+        map.put(']', '`');
+        map.put('[', '~');
         return map;
     }
 }
