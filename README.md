@@ -1,4 +1,4 @@
-# TranslaterPlugin
+# TranslatorPlugin
 
 Плагин, после нажатия Shift+T+T, переводит выделенный код, написанный в русской раскладке. 
 
